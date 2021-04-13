@@ -16,12 +16,14 @@ class ItemApi {
     }
 
     static createItem(){
+        
         const formData = {
             name: nameInput.value,
             price: priceInput.value,
-            description: descriptionInput.value
+            description: descriptionInput.value, 
+            category_id: dropdown.value 
         }
-    
+       
         const configObj = {
             method: 'POST', 
             headers: { 

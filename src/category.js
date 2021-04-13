@@ -15,6 +15,10 @@ class Category{
         Category.all.push(this)
     }
 
+    items(){
+        return Item.all.filter((item) => item.categoryId === parseInt(this.id))
+    }
+
 
     render(){
         this.element.innerText = this.name 
@@ -32,19 +36,22 @@ class Category{
     }
 
     setActiveCategory = (e) => {
-       
+        let filteredCategory 
         Category.all.forEach(c => {
+    
             if(c.element === this.element && !this.active){
+                
                 c.element.classList.add('activated')
                 c.active = true
-                
-            }else{
+                filteredCategory = c
+            } else{
                 c.element.classList.remove('activated')
                 c.active = false
             }
-
-
+            
         }) 
+        
+        Item.filterByCategory(filteredCategory)
     }
 
 

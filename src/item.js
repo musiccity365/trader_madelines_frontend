@@ -2,12 +2,15 @@ class Item {
 
     static all = []
 
+    // NEW
+    static container = document.getElementById('item-list')
+
     constructor({id, name, description, price, category_id}){
         this.id = id
         this.name = name 
         this.price = price 
         this.description = description
-        this.category_id = category_id
+        this.categoryId = category_id
 
         this.element = document.createElement('li')
         this.element.id = `item-${id}`
@@ -98,6 +101,47 @@ class Item {
         ItemApi.sendPatch(this) // moved fetch to itemApi for separation of concerns
     }
 
+    static filterByCategory(filteredCategory ){
+        
+        if (filteredCategory){
+            for (const item of Item.all){
+                if(item.categoryId === parseInt(filteredCategory.id)){
+                    item.element.style.display = ""
+                } else {
+                    item.element.style.display = "none"
+                }
+            }
+        } else {
+   
+            
+            for (const item of Item.all){
+                item.element.style.display = ""
+            }
+        }
+       
+    }
+
+    // static filterByCategory(filteredCategory ){
+        
+    //     if (filteredCategory){
+    //         const filteredItems = Item.all.filter((item) => {
+    //             return item.categoryId === parseInt(filteredCategory.id)
+    //         })
+
+    //         Item.container.innerHTML = ''
+
+    //         for (const item of filteredItems){
+    //             item.attachToDom()
+    //         }
+    //     } else {
+    //         Item.container.innerHTML = ''
+
+    //         for (const item of Item.all){
+    //             item.attachToDom()
+    //         }
+    //     }
+       
+    // }
 
 }
 
