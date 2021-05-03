@@ -5,16 +5,16 @@ class Item {
     // NEW
     static container = document.getElementById('item-list')
 
-    constructor({id, name, description, price, category_id}){
+    constructor({ id, name, description, price, category_id }) {
         this.id = id
-        this.name = name 
-        this.price = price 
+        this.name = name
+        this.price = price
         this.description = description
         this.categoryId = category_id
 
         this.element = document.createElement('li')
         this.element.id = `item-${id}`
-        this.element.dataset.id = id 
+        this.element.dataset.id = id
 
         this.element.addEventListener('click', this.handleItemClick)
 
@@ -23,7 +23,7 @@ class Item {
 
     // New Changes here:
     handleItemClick = (e) => {
-        if (e.target.innerText === "Edit"){
+        if (e.target.innerText === "Edit") {
             // OLD 
             // renderEditForm(e.target)
 
@@ -31,16 +31,16 @@ class Item {
             this.createEditFields(e.target)
 
             e.target.innerText = "Save"
-        }else if(e.target.innerText === "Delete"){
+        } else if (e.target.innerText === "Delete") {
             // OLD
             // deleteItem(e) 
 
             // NEW OO
             this.deleteItem(e)
-        } else if(e.target.innerText === "Save"){ 
-           // OLD
+        } else if (e.target.innerText === "Save") {
+            // OLD
             // patchElement(e.target.parentElement)
-            
+
             // NEW OO
             this.saveUpdatedItem()
 
@@ -48,7 +48,7 @@ class Item {
         }
     }
 
-    renderLi(){
+    renderLi() {
         this.element.innerHTML = `
         <div data-id="${this.id}">
             $<span class="price">${this.price}</span>
@@ -62,13 +62,13 @@ class Item {
         return this.element
     }
 
-    attachToDom(){
-        
+    attachToDom() {
+
         list.appendChild(this.renderLi())
     }
 
     // NEW 
-    createEditFields = (editBtn) =>{
+    createEditFields = (editBtn) => {
         // now using this to access the element
         const li = this.element
         const div = this.element.querySelector('div')
@@ -77,7 +77,7 @@ class Item {
         const name = li.querySelector('.name').innerText
         const description = li.querySelector('.description').innerText
         const price = li.querySelector('.price').innerText
-        
+
         // update the html and interpolate values:
         div.innerHTML = `
         <input type="text" name="name" class="edit-name" value="${name}">
@@ -97,32 +97,32 @@ class Item {
         this.price = this.element.querySelector(".edit-price").value
         this.name = this.element.querySelector(".edit-name").value
         this.description = this.element.querySelector(".edit-description").value
-    
+
         ItemApi.sendPatch(this) // moved fetch to itemApi for separation of concerns
     }
 
-    static filterByCategory(filteredCategory ){
-        
-        if (filteredCategory){
-            for (const item of Item.all){
-                if(item.categoryId === parseInt(filteredCategory.id)){
+    static filterByCategory(filteredCategory) {
+
+        if (filteredCategory) {
+            for (const item of Item.all) {
+                if (item.categoryId === parseInt(filteredCategory.id)) {
                     item.element.style.display = ""
                 } else {
                     item.element.style.display = "none"
                 }
             }
         } else {
-   
-            
-            for (const item of Item.all){
+
+
+            for (const item of Item.all) {
                 item.element.style.display = ""
             }
         }
-       
+
     }
 
     // static filterByCategory(filteredCategory ){
-        
+
     //     if (filteredCategory){
     //         const filteredItems = Item.all.filter((item) => {
     //             return item.categoryId === parseInt(filteredCategory.id)
@@ -140,9 +140,7 @@ class Item {
     //             item.attachToDom()
     //         }
     //     }
-       
+
     // }
 
 }
-
-
