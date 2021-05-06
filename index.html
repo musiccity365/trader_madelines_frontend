@@ -36,6 +36,23 @@
         <input type="submit" value="Create">
     </form>
 
+    <script type="text/javascript">
+        window.onload = function() {
+            //Reference the DropDownList.
+            let ddlYears = document.getElementById("ddlYears");
+
+            //Determine the Current Year.
+            let currentYear = (new Date()).getFullYear();
+
+            //Loop and add the Year values to DropDownList.
+            for (let i = 1950; i <= currentYear; i++) {
+                let option = document.createElement("OPTION");
+                option.innerHTML = i;
+                option.value = i;
+                ddlYears.appendChild(option);
+            }
+        };
+    </script>
     <script src="src/category.js" type="text/javascript"></script>
     <script src="src/categoryApi.js" type="text/javascript"></script>
     <script src="src/item.js" type="text/javascript"></script>
