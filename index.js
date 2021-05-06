@@ -15,7 +15,7 @@ const catNameInput = document.getElementById("category-name")
 
 form.addEventListener('submit', handleFormSubmit)
 
-function handleFormSubmit(e){
+function handleFormSubmit(e) {
     e.preventDefault()
 
     ItemApi.createItem()
