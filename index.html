@@ -1,41 +1,44 @@
 <!DOCTYPE html>
+
 <head>
-       <meta charset="utf-8">
-        <title>Grocery Store</title>
-        <link rel="stylesheet" type="text/css" href="style.css">
-   </head>
-   <body>
-       <h1>Our Grocery Store</h1>
+    <meta charset="utf-8">
+    <title>Grocery Store</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
 
-      <!-- New -->
-      <h2>Filter by Category:</h2>
-      <div id="cat-container"></div>
+<body>
+    <h1>Our Grocery Store</h1>
 
-       <h2>Here are all the Items:</h2>
-       <ul id="item-list">
-       </ul>
+    <!-- New -->
+    <h2>Filter by Category:</h2>
+    <div id="cat-container"></div>
 
-       <h3>Add a new Item:</h3>
-       <form id="item-form">
-           <label for="item-name">Name:</label>
-           <input type="text" name="name" id="item-name"><br><br>
-           <label for="item-description">Description:</label>
-           <input type="text" name="description" id="item-description"><br><br>
-           <label for="item-price">Price:</label>
-           <input type="number" name="price" id="item-price" min="0" step=".01"><br><br>
+    <h2>Here are all the Items:</h2>
+    <ul id="item-list">
+    </ul>
 
-           <!-- New -->
-           <label for="cat-dropdown">Category:</label>
-           <select name="category_id" id="cat-dropdown">
+    <h3>Add a new Item:</h3>
+    <form id="item-form">
+        <label for="item-name">Name:</label>
+        <input type="text" name="name" id="item-name"><br><br>
+        <label for="item-description">Description:</label>
+        <input type="text" name="description" id="item-description"><br><br>
+        <label for="item-price">Price:</label>
+        <input type="number" name="price" id="item-price" min="0" step=".01"><br><br>
+
+        <!-- New -->
+        <label for="cat-dropdown">Category:</label>
+        <select name="category_id" id="cat-dropdown">
            </select><br><br>
 
-           <input type="submit" value="Create">
-       </form>
+        <input type="submit" value="Create">
+    </form>
 
-       <script src="src/category.js" type="text/javascript"></script>
-       <script src="src/categoryApi.js" type="text/javascript"></script>
-       <script src="src/item.js" type="text/javascript"></script>
-       <script src="src/itemApi.js" type="text/javascript"></script>
-       <script src="index.js" type="text/javascript"></script>
-   </body>
+    <script src="src/category.js" type="text/javascript"></script>
+    <script src="src/categoryApi.js" type="text/javascript"></script>
+    <script src="src/item.js" type="text/javascript"></script>
+    <script src="src/itemApi.js" type="text/javascript"></script>
+    <script src="index.js" type="text/javascript"></script>
+</body>
+
 </html>
