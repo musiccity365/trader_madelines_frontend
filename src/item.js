@@ -78,10 +78,8 @@ class Item {
         const description = li.querySelector('.description').innerText
         const price = li.querySelector('.price').innerText
 
-        // update the
-
-        html and interpolate values:
-            div.innerHTML = `
+        // update the html and interpolate values:
+        div.innerHTML = `
         <input type="text" name="name" class="edit-name" value="${name}">
         <input type="text" name="description" class="edit-description" value="${description}">
         <input type="number" name="price" class="edit-price" min="0" step=".01" value="${price}">
