@@ -65,7 +65,7 @@ class ItemApi {
         fetch(`${this.baseURL}/${item.id}`, configObj)
             .then(r => r.json())
             .then(json => {
-                // we are optomistically rendering here since we don't use the json response
+                // we are optimistically rendering here since we don't use the json response
                 item.renderLi()
             })
     }
